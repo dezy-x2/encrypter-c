@@ -6,3 +6,4 @@
 
 int getCharCode(char c);
 char* encrypt(char* str);
+char** generateKey();
