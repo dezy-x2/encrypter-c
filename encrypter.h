@@ -5,3 +5,4 @@
 #include <time.h>
 
 int getCharCode(char c);
+char* encrypt(char* str);
