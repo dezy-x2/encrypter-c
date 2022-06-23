@@ -9,4 +9,6 @@ int main() {
     }
 }
 
-
+int getCharCode(char c) {
+    return (int)c - 97;
+}
