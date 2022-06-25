@@ -17,10 +17,22 @@ int main() {
     }
 }
 
+/**
+ * @brief returns the charCode of a-z starting at 0 (this will eventually become defunct)
+ * 
+ * @param c (char) char to get code of
+ * @return int - the char code
+ */
 int getCharCode(char c) {
     return (int)c - 97;
 }
 
+/**
+ * @brief encrypts a string with a dictionary key (currently uses global will be adapted to use dynamic)
+ * 
+ * @param str (char*) the string to encrypt
+ * @return char* - the final encrypted string
+ */
 char* encrypt(char* str) {
     char* finalStr = (char*)calloc(1, sizeof(3 * strlen(str)));
     for (int i=0; i<strlen(str); i++) {
@@ -30,6 +42,11 @@ char* encrypt(char* str) {
     return finalStr;
 }
 
+/**
+ * @brief generates a 2d array to be the encryption key with random letters to replace each letter
+ * 
+ * @return char** - the encryption key as a 2d array
+ */
 char** generateKey() {
     srand(time(NULL));
     char** final = (char**)calloc(1, sizeof(26 * 4 * sizeof(char*)));
