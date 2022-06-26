@@ -8,13 +8,14 @@ int main() {
     //     printf("%s\n", dictionary[0][i]);
     // }
 
-    char* encrypted = encrypt("danieldesmond");
-    printf("%s\n", encrypted);
+    // char* encrypted = encrypt("danieldesmond");
+    // printf("%s\n", encrypted);
 
-    // char** newDict = generateKey();
-    // for (int j=0; j<26; j++) {
-    //     printf("%d: %s\n",j, newDict[j]);
-    // }
+    char** newDict = generateKey();
+    for (int j=0; j<26; j++) {
+        printf("%d: %s\n",j, newDict[j]);
+    }
+    printf("\n%d: %s\n", indexOf(newDict, 26, newDict[25]), newDict[25]);
 }
 
 /**
@@ -59,4 +60,11 @@ char** generateKey() {
         final[i] = tempStr;
     }
     return final;
+}
+
+int indexOf(char** arr, int size, char* item) {
+    for (int i=0; i<size; i++) {
+        if (strcmp(arr[i], item) == 0) return i;
+    }
+    return -1;
 }
