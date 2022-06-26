@@ -7,3 +7,4 @@
 int getCharCode(char c);
 char* encrypt(char* str);
 char** generateKey();
+int indexOf(char** arr, char* item);
