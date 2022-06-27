@@ -8,15 +8,17 @@ int main() {
     //     printf("%s\n", dictionary[0][i]);
     // }
 
-    // char* encrypted = encrypt("danieldesmond");
+    // char* encrypted = encrypt("danieldesmond", dictionary);
     // printf("%s\n", encrypted);
+    // char* decrypted = decrypt(encrypted, dictionary);
+    // printf("%s\n", decrypted);
 
     // char** newDict = generateKey();
     // for (int j=0; j<26; j++) {
     //     printf("%d: %s\n",j, newDict[j]);
     // }
     // printf("\n%d: %s\n", indexOf(newDict, 26, newDict[25]), newDict[25]);
-    printf("Original: %s | Sliced: %s\n", "Hello", slice("Hello", 0, 2));
+    // printf("Original: %s | Sliced: %s\n", "Hello", slice("Hello", 0, 2));
 }
 
 /**
@@ -35,11 +37,11 @@ int getCharCode(char c) {
  * @param str (char*) the string to encrypt
  * @return char* - the final encrypted string
  */
-char* encrypt(char* str) {
+char* encrypt(char* str, char** key) {
     char* finalStr = (char*)calloc(1, sizeof(char) * 3 * strlen(str));
     for (int i=0; i<strlen(str); i++) {
         int replacementIdx = getCharCode(str[i]);
-        finalStr = strncat(finalStr, dictionary[0][replacementIdx], sizeof(finalStr) + sizeof(dictionary[0][replacementIdx]));
+        finalStr = strncat(finalStr, key[replacementIdx], sizeof(finalStr) + sizeof(key[replacementIdx]));
     }
     return finalStr;
 }
@@ -70,17 +72,20 @@ int indexOf(char** arr, int size, char* item) {
     return -1;
 }
 
-// char* decrypt(char* str) {
-//     char* finalStr = (char*)calloc(1, sizeof(char) * (strlen(str) / 3));
-//     for (int i=0; i<strlen(str); i += 3) {
-
-//     }
-// }
+char* decrypt(char* str, char** key) {
+    char* finalStr = (char*)calloc(1, sizeof(char) * (strlen(str) / 3));
+    for (int i=0; i<strlen(str); i += 3) {
+        char* tidbit = slice(str, i, 3);
+        int charCode = indexOf(key, 26, tidbit);
+        char translate = (char)(charCode + 97);
+        finalStr = strncat(finalStr, &translate, sizeof(finalStr) + sizeof(char));
+    }
+    return finalStr;
+}
 
 char* slice(char* str, int idx, int amount) {
     char* finalStr = (char*)calloc(1, sizeof(char) * amount);
     for (int i=idx; i<idx+amount; i++) {
-        printf("%d | %c | %s\n", i, str[i], finalStr);
         char nextChar = str[i];
         finalStr = strncat(finalStr, &nextChar, sizeof(finalStr) + sizeof(char));
     }
