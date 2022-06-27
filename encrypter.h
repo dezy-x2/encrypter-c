@@ -8,3 +8,4 @@ int getCharCode(char c);
 char* encrypt(char* str);
 char** generateKey();
 int indexOf(char** arr, int size, char* item);
+char* decrypt(char* str);
