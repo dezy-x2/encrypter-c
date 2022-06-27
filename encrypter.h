@@ -9,3 +9,4 @@ char* encrypt(char* str);
 char** generateKey();
 int indexOf(char** arr, int size, char* item);
 char* decrypt(char* str);
+char* slice(char* str, int idx, int amount);
