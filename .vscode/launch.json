@@ -3,13 +3,13 @@
   "configurations": [
     {
       "name": "C/C++ Runner: Debug Session",
-      "type": "cppdbg",
+      "type": "lldb",
       "request": "launch",
       "args": [],
       "stopAtEntry": true,
       "externalConsole": false,
-      "cwd": "/Users/danieldesmond/CodingProjects/C/encrypter",
-      "program": "/Users/danieldesmond/CodingProjects/C/encrypter/build/Debug/outDebug",
+      "cwd": "/Users/danieldesmond/Documents/CodingProjects/C/encrypter",
+      "program": "/Users/danieldesmond/Documents/CodingProjects/C/encrypter/build/Debug/outDebug",
       "MIMode": "gdb"
     }
   ]

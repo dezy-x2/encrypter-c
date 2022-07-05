@@ -1,0 +1,10 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/danieldesmond/Documents/CodingProjects/C/encrypter'
+clear
+echo "Compiling..."
+cc encrypter.c -o encrypter
+echo "Running..."
+clear
+./encrypter
+make: Leaving directory `/Users/danieldesmond/Documents/CodingProjects/C/encrypter'
+ 
